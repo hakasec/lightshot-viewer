@@ -1,0 +1,24 @@
+{
+    "manifest_version": 2,
+    "name": "Lightshot Viewer",
+    "version": "1.0",
+    "description": "This tool will help you view screenshots on Lightshot.",
+
+    "browser_action": {
+        "default_title": "Lightshot Viewer",
+        "default_popup": "popup.html",
+        "default_icon": "icon.png"
+    },
+
+    "permissions": [
+        "http://prntscr.com/*",
+        "tabs"
+    ],
+
+    "content_scripts": [
+        {
+            "matches": ["http://prntscr.com/*"],
+            "js": ["inject.js"]
+        }
+    ]
+}
