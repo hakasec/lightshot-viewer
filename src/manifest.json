@@ -17,7 +17,7 @@
 
     "content_scripts": [
         {
-            "matches": ["http://prntscr.com/*"],
+            "matches": ["http://prntscr.com/*", "http://prnt.sc/*"],
             "js": ["inject.js"]
         }
     ]

@@ -3,9 +3,9 @@ function generateString() {
     var characters = "abcdefghijklmnopqrstuvwxyz" +
                      "0123456789";
 
-    id += Math.floor(Math.random() * 10); //start with a number to improve success
+    //id += Math.floor(Math.random() * 10); //start with a number to improve success
 
-    for (var i = 0; i < 5; i++) {
+    for (var i = 0; i < 6; i++) {
         id += characters.charAt(Math.floor(Math.random() * characters.length));
     }
 
@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if(rawText.value.length > 0 && rawText.value.length == 6) { //check length for valid input
             //check current tab
             chrome.tabs.query({currentWindow: true, active: true}, function (tabs) {
-                if(tabs[0].url.indexOf("prntscr") !=-1) //if the tab is already of prntscr, update it
+                if(tabs[0].url.indexOf("prntscr") !=-1 || tabs[0].url.indexOf("prnt.sc") !=-1) //if the tab is already of prntscr, update it
                     chrome.tabs.update({url: "http://www.prntscr.com/" + rawText.value});
                 else // else create a new one with the id
                     chrome.tabs.create({url: "http://www.prntscr.com/" + rawText.value});
